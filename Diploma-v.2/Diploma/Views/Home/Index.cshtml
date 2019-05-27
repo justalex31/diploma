@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Diploma.Models.Projects.IndexListViewModel>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h2>List</h2>
+
+<a asp-action="Create">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rate)%
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deleted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | 
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
